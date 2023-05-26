@@ -13,7 +13,7 @@ dotenv.load_dotenv()
 log = logging.getLogger(__name__)
 
 
-@hydra.main(config_path="configs", config_name="download_images")
+@hydra.main(config_path="configs", config_name="start_streamlit_app")
 def main(config: DictConfig):
     # Imports should be nested inside @hydra.main to optimize tab completion
     # Read more here: https://github.com/facebookresearch/hydra/issues/934
@@ -33,9 +33,11 @@ def main(config: DictConfig):
 
     if config.name == "start_streamlit_app":
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        app_script_path = os.path.join(script_dir, "src", "start_streamlit_app.py")
+        app_script_path = os.path.join("src", "start_streamlit_app.py")
+        print(app_script_path)
         config_dict = OmegaConf.to_container(config)
 
+        os.chdir(hydra.utils.get_original_cwd())
         subprocess.run(["streamlit", "run", app_script_path, '--', json.dumps(config_dict)])
 
 

@@ -3,7 +3,7 @@ import json
 import streamlit as st
 
 from omegaconf import DictConfig
-from src.utils import download_images_helper
+from utils import download_images_helper
 
 
 def start_streamlit_app():

@@ -10,6 +10,7 @@
 ## Installation
 
 - Run `conda env update -f environment.yaml` from the command line in the root directory to install all required dependencies.
+- Run `export PYTHONPATH="${PYTHONPATH}:/the_path_of_cloned_repository/` to setup the working directory correctly.
 
 ## Scripts documentation
 
