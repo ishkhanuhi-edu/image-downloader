@@ -1,9 +1,9 @@
-hydra-core==1.3.2
-omegaconf==2.2
-pandas==1.3.5
-Pillow==9.4.0
+hydra-core
+omegaconf
+pandas
+Pillow
 python-dotenv
 rich
-selenium==4.9.1
-streamlit==1.22.0
+selenium
+streamlit
 pip==23.1.2
