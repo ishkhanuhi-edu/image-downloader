@@ -1,0 +1,10 @@
+# @package _global_
+
+name: download_images
+print_config: True
+ignore_warnings: True
+
+
+save_path: "python_final_images"
+keyword: "Nshan Potikyan"
+num_images: 10
