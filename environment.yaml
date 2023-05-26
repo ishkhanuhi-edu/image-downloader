@@ -8,7 +8,7 @@ dependencies:
   - pip=23.1.2
   - python-dotenv=0.19.2
   - psycopg2=2.8.6
-  - omegaconf=2.1.1
+  - omegaconf=2.2.1
   - hydra-core=1.1.1
   - rich=10.11.0
   - requests=2.26.0
