@@ -4,3 +4,11 @@ name: start_streamlit_app
 print_config: True
 ignore_warnings: True
 
+save_path: "python_final_images"
+keyword: "Nshan Potikyan"
+num_images: 10
+
+search_engine: "safari"
+srch_chrome: '//*[@id="APjFqb"]'
+srch_safari: '/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]'
+second_image: '//*[@id="Sva75c"]/div[2]/div/div[2]/div[2]/div[2]/c-wiz/div/div/div/div[3]/div[1]/a/img[1]'

@@ -1,3 +1,4 @@
+import json
 import logging
 import subprocess
 import warnings
@@ -5,7 +6,7 @@ import hydra
 import dotenv
 import os
 
-from omegaconf import DictConfig
+from omegaconf import DictConfig, OmegaConf
 
 dotenv.load_dotenv()
 
@@ -33,7 +34,9 @@ def main(config: DictConfig):
     if config.name == "start_streamlit_app":
         script_dir = os.path.dirname(os.path.abspath(__file__))
         app_script_path = os.path.join(script_dir, "src", "start_streamlit_app.py")
-        subprocess.run(["streamlit", "run", app_script_path])
+        config_dict = OmegaConf.to_container(config)
+
+        subprocess.run(["streamlit", "run", app_script_path, '--', json.dumps(config_dict)])
 
 
 if __name__ == '__main__':
