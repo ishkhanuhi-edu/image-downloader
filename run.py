@@ -5,7 +5,6 @@ import warnings
 import hydra
 import dotenv
 import os
-
 from omegaconf import DictConfig, OmegaConf
 
 dotenv.load_dotenv()
@@ -13,7 +12,7 @@ dotenv.load_dotenv()
 log = logging.getLogger(__name__)
 
 
-@hydra.main(config_path="configs", config_name="start_streamlit_app")
+@hydra.main(version_base=None, config_path="configs", config_name="start_streamlit_app")
 def main(config: DictConfig):
     # Imports should be nested inside @hydra.main to optimize tab completion
     # Read more here: https://github.com/facebookresearch/hydra/issues/934
@@ -35,7 +34,7 @@ def main(config: DictConfig):
         app_script_path = os.path.join("src", "start_streamlit_app.py")
         config_dict = OmegaConf.to_container(config)
 
-        os.chdir(hydra.utils.get_original_cwd())
+        # os.chdir(hydra.utils.get_original_cwd())
         subprocess.run(["streamlit", "run", app_script_path, '--', json.dumps(config_dict)])
 
 
