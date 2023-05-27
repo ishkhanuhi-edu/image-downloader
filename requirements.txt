@@ -7,3 +7,5 @@ rich
 selenium
 streamlit
 pip==23.1.2
+webdriver-manager
+

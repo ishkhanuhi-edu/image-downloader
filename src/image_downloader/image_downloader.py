@@ -5,6 +5,7 @@ import pandas as pd
 
 from PIL import Image
 from io import BytesIO
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -26,8 +27,9 @@ class ImageDownloader:
         self.__keyword = keyword
         self.__num_images = num_images
         self.__second_image = second_image
+
         try:
-            self.__driver = webdriver.Chrome()
+            self.__driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
             self.__srch = xpath_chrome
         except:
             self.__driver = webdriver.Safari()

@@ -32,9 +32,7 @@ def main(config: DictConfig):
         return download_images(config)
 
     if config.name == "start_streamlit_app":
-        script_dir = os.path.dirname(os.path.abspath(__file__))
         app_script_path = os.path.join("src", "start_streamlit_app.py")
-        print(app_script_path)
         config_dict = OmegaConf.to_container(config)
 
         os.chdir(hydra.utils.get_original_cwd())
