@@ -7,6 +7,7 @@ from PIL import Image
 from io import BytesIO
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
@@ -28,11 +29,8 @@ class ImageDownloader:
         self.__num_images = num_images
         self.__second_image = second_image
 
-        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-        print(driver)
-
         try:
-            self.__driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+            self.__driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
             self.__srch = xpath_chrome
         except:
             self.__driver = webdriver.Safari()
