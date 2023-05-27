@@ -28,6 +28,9 @@ class ImageDownloader:
         self.__num_images = num_images
         self.__second_image = second_image
 
+        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+        print(driver)
+
         try:
             self.__driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
             self.__srch = xpath_chrome

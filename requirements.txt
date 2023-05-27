@@ -8,4 +8,8 @@ selenium
 streamlit
 pip==23.1.2
 webdriver-manager
-
+python-dotenv
+psycopg2
+requests
+markupsafe
+jupyter
