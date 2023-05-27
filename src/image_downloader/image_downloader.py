@@ -21,17 +21,17 @@ class ImageDownloader:
         keyword (str): The keyword to search for.
         num_images (int): The number of images to download.
     """
-    def __init__(self, path, keyword, num_images, srch_engine, xpath, second_image):
+    def __init__(self, path, keyword, num_images, xpath_chrome, xpath_safari, second_image):
         self.__path = path
         self.__keyword = keyword
         self.__num_images = num_images
         self.__second_image = second_image
-        if srch_engine == 'chrome':
+        try:
             self.__driver = webdriver.Chrome()
-            self.__srch = xpath
-        else:
+            self.__srch = xpath_chrome
+        except:
             self.__driver = webdriver.Safari()
-            self.__srch = xpath
+            self.__srch = xpath_safari
 
     def __create_directory(self):
         """
