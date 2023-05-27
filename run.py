@@ -18,10 +18,10 @@ def main(config: DictConfig):
     # Imports should be nested inside @hydra.main to optimize tab completion
     # Read more here: https://github.com/facebookresearch/hydra/issues/934
 
-    if config.get("print_config"):
-        from src.utils import print_config
-
-        print_config(config, fields=tuple(config.keys()), resolve=True)
+    # if config.get("print_config"):
+    #     from src.utils import print_config
+    #
+    #     print_config(config, fields=tuple(config.keys()), resolve=True)
 
     if config.get("ignore_warnings"):
         log.info("Disabling python warnings! <config.ignore_warnings=True>")
