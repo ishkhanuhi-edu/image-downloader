@@ -30,7 +30,7 @@ class ImageDownloader:
         self.__second_image = second_image
 
         try:
-            self.__driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+            self.__driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
             self.__srch = xpath_chrome
         except:
             self.__driver = webdriver.Safari()
