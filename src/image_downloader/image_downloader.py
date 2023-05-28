@@ -1,4 +1,5 @@
 import os
+import re
 import time
 import base64
 import pandas as pd
@@ -29,8 +30,8 @@ class ImageDownloader:
         self.__second_image = second_image
 
         try:
-            self.__driver = webdriver.Safari()
-            self.__srch = xpath_safari
+            self.__driver = webdriver.Chrome()
+            self.__srch = xpath_chrome
         except:
             self.__driver = webdriver.Safari()
             self.__srch = xpath_safari
@@ -71,15 +72,17 @@ class ImageDownloader:
             url = image_forlink.get_attribute('src')  # get the url of specific image
             image_url = element.get_attribute('src')
             title = element.get_attribute('alt')  # get the title of an image
+            website = re.findall(r'https:\/\/(.*?)\/', url)[0]
             if image_url is not None and image_url.startswith('data:image'):
                 encoded_data = image_url.split(',')[1]
                 image = Image.open(BytesIO(base64.b64decode(
                     encoded_data)))  # transform the link that is available to the format from which we can save the images
                 file_path = f'{self.__path}/image_{i}.png'
                 image.save(file_path)
+
                 print(f"Image {i + 1} downloaded successfully.")
-            image_info.append((title, url))
-        df = pd.DataFrame(image_info, columns=['Title', 'URL'])
+            image_info.append((title, url, website))
+        df = pd.DataFrame(image_info, columns=['Title', 'URL', 'WEBSITE'])
         df.to_csv(f'{self.__path}/image_info.csv', mode='w', index=False)  # Saving dataframe to csv
 
     def quit_driver(self):
