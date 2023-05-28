@@ -1,0 +1,22 @@
+name: image_downloader
+channels:
+  - defaults
+  - conda-forge
+  - anaconda
+dependencies:
+  - pip
+  - pip:
+    - streamlit==1.22.0
+    - hydra-core
+    - omegaconf
+    - pandas
+    - Pillow
+    - python-dotenv
+    - rich
+    - selenium
+    - streamlit
+    - webdriver-manager
+    - python-dotenv
+    - requests
+    - markupsafe
+    - jupyter

@@ -1,0 +1,14 @@
+hydra-core
+omegaconf
+pandas
+Pillow
+python-dotenv
+rich
+selenium
+streamlit
+pip==23.1.2
+webdriver-manager
+python-dotenv
+requests
+markupsafe
+jupyter

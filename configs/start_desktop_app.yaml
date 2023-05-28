@@ -1,0 +1,9 @@
+# @package _global_
+
+name: start_desktop_app
+print_config: True
+ignore_warnings: True
+
+srch_chrome: '//*[@id="APjFqb"]'
+srch_safari: '/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]'
+second_image: '//*[@id="Sva75c"]/div[2]/div/div[2]/div[2]/div[2]/c-wiz/div/div/div/div[3]/div[1]/a/img[1]'
